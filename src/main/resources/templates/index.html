@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <title>User form </title>
+</head>
+<body>
+<div class="col-3"></div>
+<div class="contrainer col-6">
+    <h1>User CRUD actions</h1>
+    <table class="table table-active">
+        <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Phone</th>
+            <th>CRUD</th>
+        </tr>
+        <tr th:each="user:${users}">
+        <td th:text="${user.name}"></td></br>
+        <td th:text="${user.email}"></td></br>
+        <td th:text="${user.phone}"></td></br>
+            <td>
+                <a th:href="@{/edit?id={id}(id=${user.id})}" class="btn btn-primary">Edit</a>
+            <a th:href="@{/delete?id={id}(id=${user.id})}" class="btn btn-primary">Delete</a>
+            </td>
+        </tr>
+    </table>
+    <a href="/add" class="btn btn-success">Create new user</a>
+</div>
+</body>
+</html>
